@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lovely</title>
+    <style>
+        
+        body{
+            text-align: center;
+            display: flex;
+      
+            align-items: center;
+            justify-content:center;
+            margin: 25% 0 0 0;
+            border:0px;
+           
+        } 
+        .main{
+            height: 1000px;
+            position: absolute;
+        }
+        #x{
+            visibility: hidden;
+        }
+        #y{
+            visibility: hidden;
+        }
+        .cat{
+            animation: move 2s linear forwards;
+         
+        }
+        @keyframes move {
+         0%   { top: 0px; left: 0px; transform: translate(100%, 0); }
+            
+        }
+        .cat2{
+            animation: move2 2s linear forwards;
+           
+        }
+        @keyframes move2 {
+         0%   { top: 0px; left: 0px; transform: translate(-100%, 0); }
+            
+        }
+        .btn{
+            position: absolute;
+            background: tomato;
+            color: white;
+            border-color: transparent;
+            border-radius: 25px;
+            padding: 0.5em;
+            cursor:pointer;
+            animation: shake 1s cubic-bezier(.36,.07,.19,.97) both infinite;
+            transform: translate3d(0, 0, 0);
+            perspective: 1000px;
+        }
+        @keyframes shake {
+            10%, 90% {
+                transform: translate3d(-1px, 0, 0);
+            }
+            20%, 80% {
+                transform: translate3d(2px, 0, 0);
+            }
+            30%, 50%, 70% {
+                transform: translate3d(-4px, 0, 0);
+            }
+            40%, 60% {
+                transform: translate3d(4px, 0, 0);
+            }
+        }
+        .color{
+            animation: changeBackgroundColor 0.5s infinite;
+        }
+        @keyframes changeBackgroundColor {
+            0% {
+                background-color: #fc0707;
+            }
+            25% {
+                background-color: #ef16ae;
+            }
+            50% {
+                background-color: #146bbc;
+            }
+            75% {
+                background-color: #ffbf36;
+            }
+            100% {
+                background-color: #3f0436;
+            }
+        }
+        #musica { display: none }
+        
+        .title{
+            position: absolute;
+            animation: moveText 1s;
+            transform: scale(1.1);
+        }
+        @keyframes moveText {
+         0%   { top: 0px; transform: translate(0,100%); }
+       
+     
+            
+        }
+    </Style>
+</head>
+<body id="all">
+   
+    <button class="btn" onclick="show()">Click here</button>
+   
+    <div class="cat" id="x" width="25%" style>
+        <img src="https://static.wixstatic.com/media/3c0d1c_db806f0d331c4f52ab898f2354c4ed8f~mv2.png/v1/fill/w_368,h_231,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/GATINHO-BARRIGA_edited.png" width="100px">
+    </div>
+    <main width="50%">
+        <img src="https://gallery.yopriceville.com/var/resizes/Free-Clipart-Pictures/Gifts-and-Chocolates-PNG-/White_Gift_PNG_Clip_Art_Image-1414793119.png?m=1540251702" width="100px">
+    </main>
+    <div class="cat2" id="y" width="25%"  style>
+        <img src="https://static.wixstatic.com/media/fd15c2_b383217cf44a4df3bcc61e886d4194a1~mv2.png/v1/fill/w_320,h_240,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/gato.png" width="100px">
+    </div>
+    <h1 class="title" id="hiddenText" style="display: none;">I Love You</h1>
+    <audio id="musica" src="load.mp3" preload="auto" loop="loop"> 
+    <script>
+ 
+        function show(){
+            var div = document.getElementById("all");
+            div.className += "color";
+            const visibleX= document.getElementById("x").attributes;
+            const hiddenText= document.getElementById("hiddenText").attributes;
+            const visibleY= document.getElementById("y").attributes;
+            visibleX.getNamedItem("style").value = "visibility: visible";
+            visibleY.getNamedItem("style").value = "visibility: visible";
+            hiddenText.getNamedItem("style").value = "visibility: visible";
+         
+            let html = document.querySelector("html");
+            let musica = document.querySelector("#musica");
+            html.addEventListener('click', () => {
+                musica.play();
+            })
+        }
+      
+    </script>
+</body>
+    
+</html>
